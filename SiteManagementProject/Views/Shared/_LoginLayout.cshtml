@@ -1,0 +1,37 @@
+﻿
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/twitter-bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    
+
+</head>
+<body>
+    <div class="container-fluid">
+
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="list-group">
+
+                    <a asp-action="Index" asp-controller="Rol" class="list-group-item list-group-item-action">Rol İşlemleri</a>
+                    <a asp-action="UserList" asp-controller="Rol" class="list-group-item list-group-item-action">Kullanıcı İşlemleri</a>
+                    <a asp-action="Index" asp-controller="Menu" class="list-group-item list-group-item-action ">Modül İşlemleri </a>
+                    <a asp-action="Index" asp-controller="Page" class="list-group-item list-group-item-action ">Sayfa İşlemleri </a>
+                    <a asp-action="Index" asp-controller="Home" class="list-group-item list-group-item-action ">Developer Sayfası</a>
+                    <a asp-action="LogOut" asp-controller="User" class="list-group-item list-group-item-action ">Çıkış Yap</a>
+
+
+                </div>
+                @*@await Component.InvokeAsync("RoleGetList", new { id = ViewBag.id })*@
+            </div>
+            <div class="col-md-8">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+</body>
+</html>

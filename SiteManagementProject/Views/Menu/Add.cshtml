@@ -1,0 +1,32 @@
+﻿
+
+@model Menu
+
+@{
+    ViewData["Title"] = "Add";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+
+<form asp-action="Add" method="post" class="w-75 mx-auto p-3" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="MenuName"></label>
+        <span asp-validation-for="MenuName"></span>
+        <input asp-for="MenuName" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Description"></label>
+        <span asp-validation-for="Description"></span>
+        <input asp-for="Description" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Status"></label>
+        <span asp-validation-for="Status"></span>
+        <input asp-for="Status" class="form-control" />
+    </div>
+
+
+    <div asp-validation-summary="ModelOnly" class="text-danger">
+
+    </div>
+    <input type="submit" class="btn btn-info" value="Kaydet" />
+</form>

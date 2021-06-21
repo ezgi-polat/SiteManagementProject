@@ -1,0 +1,14 @@
+﻿@model IEnumerable<SiteManagementProject.Models.Menu>
+
+<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
+    <ul class="nav navbar-nav nav_1">
+        @foreach (var item in Model)
+        {
+            // <li><a href="products.html">@item.CategoryName</a></li>
+            <li><a href="/Home/MenuDetails/@item.MenuId">@item.MenuName</a></li>
+
+        }
+
+
+    </ul>
+</div>

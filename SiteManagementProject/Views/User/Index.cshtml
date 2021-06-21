@@ -1,0 +1,104 @@
+﻿
+@model SiteManagementProject.Models.UserSignInViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <form class="w-50 mx-auto p-4 mt-3 shadow" asp-action="GirisYap" method="post">
+        <h4 class="text-center" lead>Giriş Yap</h4>
+        <div class=" form-group">
+            <label asp-for="@Model.UserName"></label>
+            <span asp-validation-for="@Model.UserName" class="text-danger"></span>
+            <input asp-for="@Model.UserName" id="kadi" class="form-control" />
+        </div>
+        <div class=" form-group">
+            <label asp-for="@Model.Password"></label>
+            <span asp-validation-for="@Model.Password" class="text-danger"></span>
+            <input asp-for="@Model.Password" id="sifre" class="form-control" />
+        </div>
+        <div class="form-check">
+            <input type="checkbox" asp-for="@Model.RememberMe" class="form-check-input" />
+            <label class="form-check-label">Beni Hatırla</label>
+        </div>
+        <div class="text-danger" asp-validation-summary="ModelOnly">
+
+        </div>
+
+        <input type="submit" id="btnGiris" class="btn btn-primary" value="Giriş Yap" />
+        <small>Hesabınız yok mu?<a asp-action="KayitOl" class="btn btn-link">Kayıt Ol</a></small>
+    </form>
+</body>
+</html>
+
+
+@section JavaScript{
+    <script>
+        $('#btnGiris').click(function (e) {
+            e.preventDefault(); //ilk önce bu işlemi yap  post işlemini gerçekleştirmeden önce bunu yap
+            let UserName = $("#UserName").val();
+            let Password = $("#Password").val();
+            console.log(UserName);
+            console.log(Password);
+
+            $.ajax({
+                url: "", success: function (result) {
+                    console.log("successful!!"); //ajax işlemi başarılı ise console yaz
+                }
+            });
+
+        });
+
+    </script>
+}
+
+
+
+
+
+@*@model SiteManagementProject.Models.UserSignInViewModel
+    @{
+        ViewData["Title"] = "Index";
+        Layout = null;
+    }
+
+    <!DOCTYPE html>
+
+    <html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>Index</title>
+        <link href="~/twitter-bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    </head>
+    <body>
+
+        <form class="w-50 mx-auto p-4 mt-3 shadow" asp-action="GirisYap" method="post">
+            <h4 class="text-center lead">Giriş Yap</h4>
+            <div class="form-group">
+                <label asp-for="@Model.UserName"></label>
+                <span asp-validation-for="@Model.UserName" class="text-danger"></span>
+                <input asp-for="@Model.UserName" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.Password"></label>
+                <span asp-validation-for="@Model.Password" class="text-danger"></span>
+                <input asp-for="@Model.Password" class="form-control" />
+            </div>
+
+            <div class="text-danger" asp-validation-summary="ModelOnly">
+
+            </div>
+            <input type="submit" class="btn btn-primary" value="Giriş Yap" />
+            <small>  Hesabınız Yok Mu? <a asp-action="KayitOl" class="btn btn-link"> Kayıt Ol</a></small>
+        </form>
+    </body>
+    </html>*@

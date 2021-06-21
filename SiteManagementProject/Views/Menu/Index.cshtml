@@ -1,0 +1,39 @@
+﻿@model List<Menu>
+@{
+}
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+<a asp-action="Add" asp-controller="Menu" class="btn btn-info btn-sm my-2">Yeni Modül Ekle</a>
+<table class="table table-sm table-hover">
+    <tr>
+        <td>
+            Ad
+        </td>
+        <td>Açıklama</td>
+    </tr>
+    @if (Model.Count > 0)
+    {
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.MenuName</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.MenuId" class="btn btn-warning btn-sm">Düzenle</a>
+                    <a asp-action="Delete" asp-route-id="@item.MenuId" class="btn btn-danger btn-sm">Sil</a>
+
+                </td>
+            </tr>
+
+        }
+    }
+    else
+    {
+        <tr>
+            <td>Sisteminizde kayıtlı Menu bulunmamaktadır.</td>
+        </tr>
+    }
+
+</table>
